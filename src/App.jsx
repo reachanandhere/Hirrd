@@ -9,6 +9,7 @@ import PostJob from "./pages/post-job";
 import SavedJobs from "./pages/saved-jobs";
 import MyJobs from "./pages/myjobs";
 import { ThemeProvider } from "./components/theme-provider";
+import ProtectedRoute from "./components/protectedRoute";
 
 const router = createBrowserRouter([
   {
@@ -20,27 +21,27 @@ const router = createBrowserRouter([
       },
       {
         path: "/onboarding",
-        element: <Onboarding />,
+        element: <ProtectedRoute><Onboarding /></ProtectedRoute> ,
       },
       {
         path: "/jobs",
-        element: <JobListing />,
+        element: <ProtectedRoute><JobListing /></ProtectedRoute> ,
       },
       {
         path: "/jobs/:id",
-        element: <Job />,
+        element: <ProtectedRoute><Job /></ProtectedRoute> ,
       },
       {
         path: "/post-job",
-        element: <PostJob />,
+        element: <ProtectedRoute><PostJob /></ProtectedRoute>,
       },
       {
         path: "/saved-jobs",
-        element: <SavedJobs />,
+        element: <ProtectedRoute><SavedJobs /></ProtectedRoute>,
       },
       {
         path: "/my-jobs",
-        element: <MyJobs />,
+        element: <ProtectedRoute><MyJobs /></ProtectedRoute>,
       },
     ],
   },
