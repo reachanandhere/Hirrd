@@ -14,7 +14,12 @@ Features
 
 ![banner](https://github.com/user-attachments/assets/93fcaf6b-ac79-4b1b-99b8-4cef89147168)
 
-# Landing Page
-
 ![Screenshot 2024-08-26 at 3 58 03 AM](https://github.com/user-attachments/assets/919a724b-7412-4357-bf81-74d27d4704a3)
 
+![Screenshot 2024-08-26 at 3 59 19 AM](https://github.com/user-attachments/assets/5cbefad2-fbb1-4197-a21a-145099455007)
+
+![Screenshot 2024-08-26 at 3 59 54 AM](https://github.com/user-attachments/assets/6f15a620-ee9d-423f-bd8a-c04abf918f6d)
+
+![Screenshot 2024-08-26 at 4 00 26 AM](https://github.com/user-attachments/assets/a20ed2e7-7ac8-496f-bcf7-b2711a1f69ab)
+
+![Screenshot 2024-08-26 at 4 00 57 AM](https://github.com/user-attachments/assets/1172c57b-914e-4cff-8d4c-7fb90dd14393)
