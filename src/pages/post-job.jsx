@@ -1,6 +1,7 @@
 import { getCompanies } from "@/api/apiCompanies";
 import { addNewJob } from "@/api/apiJobs";
 import AddCompanyDrawer from "@/components/add-company-drawer";
+
 import { Button } from "@/components/ui/button";
 
 import { Input } from "@/components/ui/input";
@@ -18,7 +19,7 @@ import { useUser } from "@clerk/clerk-react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import MDEditor from "@uiw/react-md-editor";
 import { State } from "country-state-city";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 import { Navigate, useNavigate } from "react-router-dom";
 import { BarLoader } from "react-spinners";
@@ -35,6 +36,7 @@ const schema = z.object({
 const PostJob = () => {
   const { user, isLoaded } = useUser();
   const navigate = useNavigate();
+  const [open, setOpen] = useState(false);
 
   const {
     register,
@@ -78,6 +80,11 @@ const PostJob = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoaded]);
 
+
+  useEffect(()=>{
+    fnCompanies()
+  },[loadingCompanies])
+
   if (!isLoaded || loadingCompanies) {
     return <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />;
   }
@@ -114,7 +121,7 @@ const PostJob = () => {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectGroup>
-                    {State.getStatesOfCountry("IN").map(({ name }) => (
+                    {State.getStatesOfCountry("US").map(({ name }) => (
                       <SelectItem key={name} value={name}>
                         {name}
                       </SelectItem>
@@ -149,7 +156,7 @@ const PostJob = () => {
               </Select>
             )}
           />
-          <AddCompanyDrawer fetchCompanies={fnCompanies} />
+          <AddCompanyDrawer fetchCompanies={fnCompanies} open={open} />
         </div>
         {errors.location && (
           <p className="text-red-500">{errors.location.message}</p>

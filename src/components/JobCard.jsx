@@ -12,12 +12,12 @@ import { Link } from "react-router-dom";
 import { Button } from "./ui/button";
 import useFetch from "@/hooks/use-fetch";
 import { saveJob } from "@/api/apiJobs";
-import SavedJobs from "@/pages/saved-jobs";
+
 
 const JobCard = ({
   job,
   isMyJob = false,
-  savedInit = false,
+  savedInit,
   onJobSaved = () => {},
 }) => {
   const { user } = useUser();
@@ -32,7 +32,7 @@ const JobCard = ({
 
   useEffect(() => {
     if (savedJobs != undefined) setSaved(savedJobs?.length > 0);
-    else setSaved(false);
+    //else setSaved(false);
   }, [savedJobs]);
 
   const handleSaveJob = async () => {
