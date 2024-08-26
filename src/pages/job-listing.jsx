@@ -46,6 +46,12 @@ const JobListing = () => {
     return <BarLoader className="mb-4" width={"100%"} color="#36d7b7" />;
   }
 
+  const clearFilter = () => {
+    setLocation("");
+    setCompany_id("");
+    setSearchQuery("")
+  };
+
   const handleSearch = (e) => {
     e.preventDefault();
     let formData = new FormData(e.target);
@@ -70,13 +76,14 @@ const JobListing = () => {
           type="text"
           placeholder="Search Jobs by Title.."
           name="search-query"
+          value={searchQuery}
           className="h-full flex-1 px-4 text-md"
         />
         <Button type="submit" variant="blue" className="h-full sm:w-28">
           Submit
         </Button>
       </form>
-      <div>
+      <div className="flex flex-col sm:flex-row gap-2">
         {/* <Select value={location} onValueChange={(value) => setLocation(value)}>
           <SelectTrigger>
             <SelectValue placeholder="Filter by Location" />
@@ -102,6 +109,7 @@ const JobListing = () => {
             })}
           </SelectContent>
         </Select>
+        <Button onClick={clearFilter} variant="destructive">Clear Filter</Button>
       </div>
 
       {loadingJobs && (
