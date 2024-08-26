@@ -11,3 +11,10 @@ Features
 6. Candidate can filter the jobs based on the Keywords and Company name.
 7. Candidate can save his job to review later.
 
+
+![banner](https://github.com/user-attachments/assets/93fcaf6b-ac79-4b1b-99b8-4cef89147168)
+
+# Landing Page
+
+![Screenshot 2024-08-26 at 3 58 03 AM](https://github.com/user-attachments/assets/919a724b-7412-4357-bf81-74d27d4704a3)
+
