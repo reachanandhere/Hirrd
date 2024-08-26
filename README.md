@@ -1,8 +1,11 @@
-# React + Vite
+# HIRRD is Full Stack Web Applcation Job Portal. It can be used for Recruiter and job seekers to post a job and search for open jobs respectively. It is built using React JS, ShadCN and Subabase database. For seemless authentication, Clerk is used.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Features
+1. Recruiter can create a Job.
+2. Recruiter can view all the applicants for his created job.
+3. Recuiter can download the resume for a candidate and can update the status for the candidate hiring.
+4. Recruiter can delete his created job.
+5. Candidate can search for a job and apply with his resume.
+6. Candidate can filter the jobs based on the Keywords and Company name.
+7. Candidate can save his job to review later.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
