@@ -1,6 +1,13 @@
 import { getSingleJob } from "@/api/apiCompanies";
 import { updateHiringStatus } from "@/api/apiJobs";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import ApplyJobDrawer from "@/components/apply-job";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import useFetch from "@/hooks/use-fetch";
 import { useUser } from "@clerk/clerk-react";
 import MDEditor from "@uiw/react-md-editor";
@@ -73,22 +80,19 @@ const Job = () => {
       </div>
 
       {job?.recruiter_id === user?.id && (
-        <Select
-          
-          onValueChange={handleStatusChange}
-        >
-          <SelectTrigger className={`w-full ${job?.isOpen ? "bg-green-950" : "bg-red-500"}`}>
-            <SelectValue placeholder={"Hiring Status " + (job?.isOpen ? "( Open )" : "( Closed )")} />
+        <Select onValueChange={handleStatusChange}>
+          <SelectTrigger
+            className={`w-full ${job?.isOpen ? "bg-green-950" : "bg-red-500"}`}
+          >
+            <SelectValue
+              placeholder={
+                "Hiring Status " + (job?.isOpen ? "( Open )" : "( Closed )")
+              }
+            />
           </SelectTrigger>
           <SelectContent>
-            
-                <SelectItem value={"open"}>
-                  Open
-                </SelectItem>
-                <SelectItem value={"closed"}>
-                  Closed
-                </SelectItem>
-              
+            <SelectItem value={"open"}>Open</SelectItem>
+            <SelectItem value={"closed"}>Closed</SelectItem>
           </SelectContent>
         </Select>
       )}
@@ -103,6 +107,15 @@ const Job = () => {
         source={job?.requirements}
         className="bg-transparent sm:text-lg"
       />
+      
+      {job?.recruiter_id !== user?.id && (
+        <ApplyJobDrawer
+          job={job}
+          user={user}
+          fetchJob={fnJob}
+          applied={job?.applications?.find((ap) => ap.candidate_id == user.id)}
+        />
+      )}
     </div>
   );
 };
