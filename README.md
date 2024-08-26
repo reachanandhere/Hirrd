@@ -1,8 +1,8 @@
-#HIRRD
+# HIRRD
 
 HIRRD is Full Stack Web Applcation Job Portal. It can be used for Recruiter and job seekers to post a job and search for open jobs respectively. It is built using React JS, ShadCN and Subabase database. For seemless authentication, Clerk is used.
 
-# Features
+Features
 1. Recruiter can create a Job.
 2. Recruiter can view all the applicants for his created job.
 3. Recuiter can download the resume for a candidate and can update the status for the candidate hiring.
