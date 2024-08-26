@@ -33,7 +33,7 @@ const SavedJobs = () => {
       </h1>
 
       {loadingSavedJobs === false && (
-        <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className={`mt-8 grid  ${savedJobs?.length? "lg:grid-cols-3 md:grid-cols-2" : "w-full text-center"}  gap-4 w-full`}>
           {savedJobs?.length ? (
             savedJobs?.map((saved) => {
               return (
@@ -46,7 +46,7 @@ const SavedJobs = () => {
               );
             })
           ) : (
-            <div>No Saved Jobs 👀</div>
+            <div className="text-6xl flex justify-center text-center">No Saved Jobs 👀</div>
           )}
         </div>
       )}

@@ -117,7 +117,7 @@ const JobListing = () => {
       )}
 
       {loadingJobs == false && (
-        <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className={`mt-8 grid ${jobs?.length>0 ? "md:grid-cols-2 lg:grid-cols-3" : "w-full text-center"}  gap-4`}>
           {jobs?.length ? (
             jobs.map((job) => {
               return (
@@ -125,11 +125,12 @@ const JobListing = () => {
                   key={job.id}
                   job={job}
                   savedInit={job?.saved?.length > 0}
+                  
                 />
               );
             })
           ) : (
-            <div className="flex justify-center text-center mt-4 text-6xl w-screen">
+            <div className="flex justify-center text-center mt-4 text-6xl">
              No Jobs Found
             </div>
           )}
