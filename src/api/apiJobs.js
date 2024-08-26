@@ -21,7 +21,7 @@ export async function getJobs(token, { location, company_id, searchQuery }) {
   const { data, error } = await query;
   if (error) {
     console.log(error);
-    return null
+    return null;
   }
 
   return data;
@@ -54,25 +54,35 @@ export async function saveJob(token, { alreadySaved }, saveData) {
   return data;
 }
 
-
 export async function updateHiringStatus(token, { job_id }, isOpen) {
-    const supabase = await supabaseClient(token);
-   
-      const { data, error } = await supabase
-        .from("jobs")
-        .update({ isOpen })
-        .eq("id", job_id)
-        .select()
+  const supabase = await supabaseClient(token);
 
-  
-      if (error) {
-        console.error(error)
-        return null
-      }
-  
-      return data;
-    
-  
-   
+  const { data, error } = await supabase
+    .from("jobs")
+    .update({ isOpen })
+    .eq("id", job_id)
+    .select();
+
+  if (error) {
+    console.error(error);
+    return null;
   }
+
+  return data;
+}
+
+export async function addNewJob(token, _, jobData) {
+    const supabase = await supabaseClient(token);
   
+    const { data, error } = await supabase
+      .from("jobs")
+      .insert([jobData])
+      .select();
+  
+    if (error) {
+      console.error(error);
+      throw new Error("Error Creating Job");
+    }
+  
+    return data;
+  }
