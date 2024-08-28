@@ -11,6 +11,7 @@ Features
 6. Candidate can filter the jobs based on the Keywords and Company name.
 7. Candidate can save his job to review later.
 
+https://hirred.netlify.app/
 
 ![banner](https://github.com/user-attachments/assets/93fcaf6b-ac79-4b1b-99b8-4cef89147168)
 
